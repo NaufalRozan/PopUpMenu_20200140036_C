@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         //Menghubungakan variabel edpassword dengan componen button pada Layout
         edpassword=findViewById(R.id.edPassword);
 
+
+
         //membuat fungsi onclick pada button btnLogin
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,15 +45,36 @@ public class MainActivity extends AppCompatActivity {
                 //menyimpan input user di edittext password kedalam variabel password
                 password = edpassword.getText().toString();
 
-                if (nama.equals("naufal.rozan.ft20@mail.umy.ac.id") && password.equals("12345")) {
+                String email = "admin@mail.com";
+                String pass = "123";
+
+                if (nama.isEmpty() || password.isEmpty()) {
                     Toast t = Toast.makeText(getApplicationContext(),
-                            "Login Berhasil", Toast.LENGTH_LONG);
+                            "Email dan password wajib diisi!!!",
+                            Toast.LENGTH_LONG);
                     t.show();
-                } else if (nama.equals("naufal.rozan.ft20@mail.umy.ac.id")) {
+
+                } else if (nama.equals(email) && password.equals(pass)) {
+                    Toast t = Toast.makeText(getApplicationContext(),
+                            "Login Berhasil",
+                            Toast.LENGTH_LONG);
+
+                    t.show();
+
+                    Bundle b = new Bundle();
+                    b.putString("a",nama.trim());
+                    b.putString("b", password.trim());
+
+                    Intent i = new Intent(getApplicationContext(), ActivityHasil.class);
+                    i.putExtras(b);
+                    startActivity(i);
+
+
+                } else if (nama.equals(email)) {
                     Toast t = Toast.makeText(getApplicationContext(),
                             "Password Salah", Toast.LENGTH_LONG);
                     t.show();
-                } else if (password.equals("12345")) {
+                } else if (password.equals(pass)) {
                     Toast t = Toast.makeText(getApplicationContext(),
                             "Email Salah", Toast.LENGTH_LONG);
                     t.show();
