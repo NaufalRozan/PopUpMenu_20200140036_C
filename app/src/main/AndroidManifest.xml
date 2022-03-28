@@ -10,8 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SampleConstraintLayout">
         <activity
+            android:name=".ActivityLihatData"
+            android:parentActivityName=".Home_Activity" />
+        <activity
+            android:name=".Home_Activity"
+            android:parentActivityName=".MainActivity" />
+        <activity
             android:name=".ActivityPendaftaran"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ActivityHasil"
             android:label="@string/label2"
